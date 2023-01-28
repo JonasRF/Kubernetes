@@ -15,6 +15,7 @@ Nota: O kubectl é uma ferramenta de linha de comando e possui comandos que voc�
 
 Assim podemos criar e rodar uma aplicação criando diretamente um Pod com tudo o que precisamos, e para isso podemos usar um arquivo YAML como o abaixo:
 
+```
 apiVersion: v1
 
 Kind: Pod
@@ -28,4 +29,10 @@ Kind: Pod
            name: redis
            ports:
              - containterPort: 80
-                name: http       
+                name: http    
+```
+                
+                
+                
+                
+                
