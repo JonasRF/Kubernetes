@@ -74,7 +74,6 @@ Kind: ReplicaSet
 ```
                 
 Neste exemplo não foi definida quantidade de replicas/pod portanto a aplicação vai subir com um Pod. Para aplicar podemos emitir o comando :
-
 ### kubectl apply -f replicaset.yaml 
 
 Agora temos mais inteligência associado ao nosso Pod:
@@ -83,7 +82,6 @@ Se um Pod for deletado ele será recriado automaticamente;
 Se o Pod 'morrer' o ReplicaSet vai criar outro Pod;
 O ReplicaSet também pode escalar a nossa aplicação e garantir o seu estado;
 Podemos escalar a aplicação com 10 Pods usando o comando:
-
 ### kubectl scale replicaset redis-replicaset --replicas=10
 
 Com isso o ReplicaSet vai garantir que os 10 Pods sempre estejam em execução.
@@ -136,10 +134,11 @@ Os ReplicaSets geralmente são vistos como uma “ponte” para deployments – 
 ![image](https://user-images.githubusercontent.com/77034798/215282167-c39243b7-0503-475d-80b2-c0a827ffb515.png)
 
                 
-Conclusão:
+## Conclusão:
 
 - O Deployment é quem faz o controle de versões no kubernetes, e ele faz isso gerando versões do ReplicaSet;
 - O ReplicaSet fica responsável por gerenciar a quantidade de Pods, a distribuição e por manter o estado;
 - O Pod é o responsável por fazer sua aplicação rodar e funcionar conforme o esperado;
+- 
 Obs: Outro conceito importante relacionado são os Services que são uma coleção de Pods que são expostos como um endpoint. O Serviço propaga informações de estado e rede para todos os Worker Nodes.
                 
