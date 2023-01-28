@@ -125,7 +125,7 @@ Kind: Deployment
 ```
 
 O comando para implantar o deployment pode ser:
-### -> kubectl apply -f deployment.yaml
+#### kubectl apply -f deployment.yaml
 
 Assim temos um hierarquia com 3 níveis : Pods, ReplicaSets e Deployments.
 
