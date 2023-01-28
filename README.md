@@ -135,4 +135,10 @@ Os ReplicaSets geralmente são vistos como uma “ponte” para deployments – 
 ![image](https://user-images.githubusercontent.com/77034798/215282167-c39243b7-0503-475d-80b2-c0a827ffb515.png)
 
                 
+Conclusão:
+
+- O Deployment é quem faz o controle de versões no kubernetes, e ele faz isso gerando versões do ReplicaSet;
+- O ReplicaSet fica responsável por gerenciar a quantidade de Pods, a distribuição e por manter o estado;
+- O Pod é o responsável por fazer sua aplicação rodar e funcionar conforme o esperado;
+Obs: Outro conceito importante relacionado são os Services que são uma coleção de Pods que são expostos como um endpoint. O Serviço propaga informações de estado e rede para todos os Worker Nodes.
                 
