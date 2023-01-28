@@ -75,7 +75,7 @@ Kind: ReplicaSet
                 
 Neste exemplo não foi definida quantidade de replicas/pod portanto a aplicação vai subir com um Pod. Para aplicar podemos emitir o comando :
 
-## kubectl apply -f replicaset.yaml ##
+### kubectl apply -f replicaset.yaml 
 
 Agora temos mais inteligência associado ao nosso Pod:
 
@@ -84,7 +84,7 @@ Se o Pod 'morrer' o ReplicaSet vai criar outro Pod;
 O ReplicaSet também pode escalar a nossa aplicação e garantir o seu estado;
 Podemos escalar a aplicação com 10 Pods usando o comando:
 
-kubectl scale replicaset redis-replicaset --replicas=10
+### kubectl scale replicaset redis-replicaset --replicas=10
 
 Com isso o ReplicaSet vai garantir que os 10 Pods sempre estejam em execução.
 
@@ -97,5 +97,42 @@ Um Deployment é um conceito de nível superior que gerencia ReplicaSets e forne
 Um Deployment é usado para informar ao Kubernetes como criar ou modificar instâncias dos pods que contêm um aplicativo em contêiner. Os deployments podem dimensionar o número de pods de réplica, habilitar a distribuição de código atualizado de maneira controlada ou reverter para uma versão de implantação anterior, se necessário.
 
 Podemos definir um deployment usando um arquivo YAML:
+
+```
+apiVersion: v1
+
+Kind: Deployment
+
+  metadata:
+      name: redis-deployment
+
+  spec:
+     selector:
+        matchLabels:
+            app:  exp-redis
+     template:
+         metadata:
+              labels:
+                  app:  exp-redis
+
+          spec:
+             containers:
+                 - name: redis    
+                    image:  redis
+                     ports:
+                     - containterPort: 80
+                         name: http       
+```
+
+O comando para implantar o deployment pode ser : * kubectl apply -f deployment.yaml *
+
+Assim temos um hierarquia com 3 níveis : Pods, ReplicaSets e Deployments.
+
+O primeiro bloco de construção é o Pod, que por sua vez é usado em ReplicaSets. Além disso, tanto os pods quanto os ReplicaSets são usados ​​por Deployments.
+
+Os ReplicaSets geralmente são vistos como uma “ponte” para deployments – e seu uso é visto como uma prática recomendada ao usar o Kubernetes.
+
+![image](https://user-images.githubusercontent.com/77034798/215282167-c39243b7-0503-475d-80b2-c0a827ffb515.png)
+
                 
                 
